@@ -7,14 +7,14 @@
 
 void secretFunction()
 {
-	char buff[BUZZ_SIZE];
-    FILE *f = fopen("root_flag.txt", "r");
+    char buff[BUZZ_SIZE];
+    FILE *f = fopen("/root/ctf1/flag.txt", "r");
     fgets(buff, BUZZ_SIZE, f);
     printf("String read: %s\n", buff);
 }
 void buffering()
 {
-	printf("I'm Buffering!\n");
+    printf("I'm Buffering!\n");
 }
 
 char *toLower(char *str, size_t len)
@@ -27,26 +27,50 @@ char *toLower(char *str, size_t len)
     return str_l;
 }
 
+void amIBuffering(char *lower)
+{
+    if (strcmp(lower, "monday") == 0) 
+    {
+        buffering();
+    } 
+    else if (strcmp(lower, "tuesday") == 0)
+    {
+        buffering();
+    }
+    else if (strcmp(lower, "wednesday") == 0)
+    {
+        buffering();
+    }
+    else if (strcmp(lower, "thursday") == 0)
+    {
+        buffering();
+    }
+    else if (strcmp(lower, "friday") == 0)
+    {
+        buffering();
+    }
+    else if (strcmp(lower, "saturday") == 0)
+    {
+        buffering();
+    }
+    else if (strcmp(lower, "sunday") == 0)
+    {
+        buffering();
+    }
+    else 
+    {
+        printf("Not today...\n");
+    }
+}
+
 int main()
 {
-	char str1[43], result[43];
-	printf("Enter a day to find out if am I buffering?\n");
-	scanf("%s", str1);
+    char str1[43], result[43];
+    printf("Enter a day to find out if am I buffering?\n");
+    scanf("%s", str1);
 
     size_t len = strlen(str1);
     char *lower = toLower(str1, len);
 
-	if (strcmp(lower, "monday") == 0) 
-	{
-		buffering();
-	} 
-	else if (strcmp(lower, "tuesday") == 0)
-	{
-		buffering();
-	}
-	/* more else if clauses */
-	else /* default: */
-	{
-		printf("Not today...\n");
-	}
+    amIBuffering(lower);
 }
